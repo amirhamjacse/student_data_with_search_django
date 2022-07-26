@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'studentinfo/css/bootstrap.css' %}"> 
+    <title>Students Data</title>
+</head>
+<body>
+   <h2 class="bg-success text-white text-center py-3">Students Data</h2>
+   <div class="input-group d-flex justify-content-center">
+    <!-- <label for="form1" class="form-label">Search</label> -->
+    <div class="form-outline">
+        <form action="" method="get">
+                <input type="search" name="search1" id="form1" placeholder="Roll, Result, Name and Class " class="form-control">
+            </div>
+            <button type="submit"  class="btn btn-success">
+                <i class="bi bi-search"></i> SEARCH
+            </button>
+
+        </form>
+    </div>
+
+{% if search %}
+<table class="table mb-5">
+    <tr>
+        <th>Students name</th>
+        <th>Fathers name</th>
+        <th>Mothers name</th>
+        <th>Mobile Numbers</th>
+        <th>Date of birth</th>
+        <th>Blood Group</th>
+        <th>Class</th>
+        <th>Roll</th>
+        <th>Address</th>
+        <th>Result</th>
+    </tr>
+    {% for b in search %}
+    <tr>
+        <td>{{b.name}}</td>
+        <td>{{b.father_name}}</td>
+        <td>{{b.mother_name}}</td>
+        <td>{{b.mobile_number}}</td>
+        <td>{{b.date_of_birth}}</td>
+        <td>{{b.blood_group}}</td>
+        <td>{{b.class_name}}</td>
+        <td>{{b.roll}}</td>
+        <td>{{b.address}}</td>
+        <td>{{b.result}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    {% else %}
+        <h6 class='alert alert-warning py-2 mt-2'>No Data to Show, Only Search with Student's Name, Roll, Result and Class </h6>
+    {% endif %}
+
+
+
+
+
+
+
+
+    <script src="{% static 'studentinfo/js/popper.js' %}"></script>
+    <script src="{% static 'studentinfo/js/bootstrap.js' %}"></script>
+    
+    
+</body>
+</html>
