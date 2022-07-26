@@ -16,3 +16,7 @@ mkvirtualenv 'envname'
 
 *active env=
 workon 'envname'
+
+superuser name= 
+admin
+password= admin
